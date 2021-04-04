@@ -1,0 +1,86 @@
+package Account;
+
+import java.util.Scanner;
+
+public class User {
+	
+
+		String customerName;
+		String customerID;
+		int balance;
+		
+		Scanner takeInput = new Scanner(System.in);
+		
+		// ================
+		
+		User(String userName, String userID) {
+			
+			this.customerName = userName;
+			this.customerID = userID; 		 }
+		
+		// ================
+		
+		// Try to replaace != with > Greater than tool like this (if amount > 0) at the end of project
+		
+		void deposite (int amount) {
+			if (amount != 0)
+				balance += amount; 
+					System.out.println("New Balance After Deposit = $" + balance);			   
+								   }
+		
+		void withdraw (int amount) {
+			if (amount != 0)
+				balance -= amount;
+					System.out.println("New Balance After Withdraw = $" + balance); }
+
+		// ================
+		
+		public void showList() {
+			char takeOneChar;
+			System.out.println("Welcome, "+"Name:"+customerName+" || "+"ID: "+customerID);
+			System.out.println("=======================");
+			System.out.println("Which service do you need, Sir? ");
+			System.out.println("");
+			System.out.println("A. Check Account Balance ");
+			System.out.println("B. Make a Deposit");
+			System.out.println("C. Make a Withdraw");
+			System.out.println("F. Exit"); 
+		
+		// ================
+		
+		 do {
+			
+		takeOneChar = takeInput.next().charAt(0);
+		takeOneChar = Character.toUpperCase(takeOneChar);
+			
+		switch (takeOneChar) {
+
+		 case 'A':
+			System.out.println("=========");
+			System.out.println("Account Balance = $" + balance);
+			System.out.println("=========");
+			break;
+			
+		case 'B':
+			int makeDeposit = takeInput.nextInt();
+			deposite(makeDeposit);
+			break;
+			
+		case 'C':
+			int makewithdraw = takeInput.nextInt();
+			withdraw(makewithdraw);
+			break; }
+			
+		 }	 while (takeOneChar != 'F');
+		 
+		 // ================
+		
+		if (takeOneChar == 'f' || takeOneChar == 'F') {
+				
+			System.out.println("Thank You for using our service"); }	
+      
+		}
+		
+	}
+
+
